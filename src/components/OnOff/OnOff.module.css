@@ -1,0 +1,26 @@
+.green {
+    background-color: green;
+
+}
+.buttonStyles {
+    width: 50px;
+    text-align: center;
+    display: inline-block;
+    border: 1px solid black;
+}
+
+.buttonStyles:hover{
+    cursor: pointer;
+}
+
+.red {
+    background-color: red;
+}
+
+.round {
+    width: 20px;
+    height: 20px;
+    margin-left: 10px;
+    border-radius: 50%;
+    display: inline-block;
+}
