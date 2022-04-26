@@ -2,11 +2,11 @@ import React, {useState} from 'react';
 import {Accordion} from "./components/Accordion/Accordion";
 import {Rating} from "./components/Rating/Rating";
 import {Accordion2} from "./components/Accordion/Accordion2";
-import {OnOff} from "./components/OnOff/OnOff";
+import {UncontrolledOnOff} from "./components/OnOff/UncontrolledOnOff";
 import {UncontrolledAccordion} from "./components/Accordion/UncontrolledAccordion";
 import style from './appStyles.module.css'
 import {UncontrolledRating} from "./components/Rating/UncontrolledRating";
-import {UncontrolledOnOff} from "./components/OnOff/UncontrolledOnOff";
+import {OnOff} from "./components/OnOff/OnOff";
 
 export type RatingValueType = 0 | 1 | 2| 3 | 4 | 5
 
@@ -31,13 +31,13 @@ function App() {
             <hr/>
             {/*<Accordion2 title={'Refactored Accordion'} collapsed={collapsed} collapsedStateChanger={collapsedStatus}/>*/}
             <hr/>
-            <OnOff />
+            <OnOff value={onOffValue} setOnOffValue={setOnOffValue}/>
             <hr/>
             <UncontrolledAccordion title={'Accordion using useState'}/>
             <hr/>
-            <UncontrolledRating />
+            <UncontrolledRating defaultValue={0} onChange={()=>0}/>
             <hr/>
-            <UncontrolledOnOff value={onOffValue} setOnOffValue={setOnOffValue}/>
+            <UncontrolledOnOff />
         </div>
     );
 }
