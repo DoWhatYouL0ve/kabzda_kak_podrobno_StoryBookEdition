@@ -16,5 +16,5 @@ export const OnOffModeChanging = () => {
 }
 export const BugMode = () => <div>'Un sync when change default value when component has already been rendered'</div>
 
-export const DefaultInputValue = () => <input defaultValue={'Hello!'}/>
+
 
