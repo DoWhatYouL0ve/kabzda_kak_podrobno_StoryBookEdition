@@ -1,7 +1,4 @@
-import React, {useState, ChangeEvent, MouseEvent, useRef} from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
-import {action} from "@storybook/addon-actions";
-
+import React, {useState, ChangeEvent, useRef} from 'react';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {

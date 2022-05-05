@@ -10,6 +10,11 @@ import {OnOff} from "./components/OnOff/OnOff";
 
 export type RatingValueType = 0 | 1 | 2| 3 | 4 | 5
 
+export type ItemType = {
+    item: string
+    value: any
+}
+
 function App() {
 
     let [ratingValue, setRatingValue] = useState<RatingValueType>(0)
@@ -20,10 +25,15 @@ function App() {
         setCollapsed(!collapsed)
     }
 
+    let items: ItemType[] = [{item: 'Wroclaw', value: '1'}, {item: 'Berlin', value: '2'}, {item: 'Monaco', value: '3'}]
+    const onClickHandler = (value: any) => {
+
+    }
+
     return (
         <div className={style.app}>
             <PageTitle title={'This is App title.'}/>
-            <Accordion title={'Menu'} collapsedStateChanger={collapsedStatus} collapsed={collapsed}/>
+            <Accordion title={'Menu'} collapsedStateChanger={collapsedStatus} collapsed={collapsed} items={items} onClickHandler={onClickHandler}/>
             {/*<Accordion title={'Menu collapsed'} collapsedStateChanger={collapsedStatus} collapsed={collapsed}/>*/}
             <hr/>
             <PageTitle title={'This is rating'}/>
@@ -33,7 +43,7 @@ function App() {
             <hr/>
             <OnOff value={onOffValue} setOnOffValue={setOnOffValue}/>
             <hr/>
-            <UncontrolledAccordion title={'Accordion using useState'}/>
+            <UncontrolledAccordion title={'Accordion using useState'} items={items} onClickHandler={onClickHandler}/>
             <hr/>
             <UncontrolledRating defaultValue={0} onChange={()=>0}/>
             <hr/>

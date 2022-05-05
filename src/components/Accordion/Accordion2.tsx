@@ -7,7 +7,7 @@ export function Accordion2(props:AccordionPropsType) {
         return (
             <div>
                 <AccordionTitle title={props.title} collapsedStateChanger={props.collapsedStateChanger}/>
-                {props.collapsed && <AccordionBody/>}
+                {props.collapsed && <AccordionBody items={props.items} onClickHandler={props.onClickHandler}/>}
             </div>
         )
 }

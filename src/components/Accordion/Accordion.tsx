@@ -1,5 +1,6 @@
 import React from "react";
 import {AccordionBody} from "./AccordionBody";
+import {ItemType} from "../../App";
 
 export type AccordionPropsType = {
     title: string
@@ -12,14 +13,15 @@ export type AccordionPropsType = {
      * color for text of the title
      * */
     color?: string
-
+    items: ItemType[]
+    onClickHandler: (value: any) => void
 }
 
 export function Accordion(props:AccordionPropsType) {
         return (
             <div>
                 <AccordionTitle title={props.title} collapsedStateChanger={()=>props.collapsedStateChanger()} color={props.color}/>
-                {!props.collapsed && <AccordionBody/>}
+                {!props.collapsed && <AccordionBody items={props.items} onClickHandler={props.onClickHandler}/>}
             </div>
         )
 }
