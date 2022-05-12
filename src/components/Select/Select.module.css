@@ -1,0 +1,31 @@
+* {
+    box-sizing: border-box;
+}
+
+.value {
+    border-bottom: 1px solid blue;
+    display: inline-block;
+    min-height: 20px;
+    min-width: 70px;
+    text-align: center;
+}
+
+.items {
+    border: 1px solid #1ea7fd;
+    position: absolute;
+}
+
+.item {
+    padding: 5px;
+    font-weight: bold;
+}
+
+/*.item:hover {
+    background-color: #1ea7fd;
+    color: white;
+}*/
+
+.item.selected {
+    background-color: #1ea7fd;
+    color: white;
+}
