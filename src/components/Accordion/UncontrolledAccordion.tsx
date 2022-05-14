@@ -1,7 +1,8 @@
-import React, {useState} from "react";
+import React, {useReducer, useState} from "react";
 import {AccordionTitle} from "./AccordionTitle";
 import {AccordionBody} from "./AccordionBody";
 import {ItemType} from "../../App";
+import {reducer, TOGGLE_COLLAPSED} from "./reducer";
 
 export type UncontrolledAccordionPropsType = {
     title: string
@@ -11,15 +12,15 @@ export type UncontrolledAccordionPropsType = {
 
 export const UncontrolledAccordion = (props: UncontrolledAccordionPropsType) => {
 
-    const [state, setState] = useState(true)
+    const [state, dispatch] = useReducer(reducer,{stateMode:true})
 
     const changeState = () => {
-        setState(!state)
+        dispatch({type: TOGGLE_COLLAPSED})
     }
     return (
         <div>
             <AccordionTitle title={props.title} onClickHandler={changeState}/>
-            {!state && <AccordionBody items={props.items} onClickHandler={props.onClickHandler}/>}
+            {!state.stateMode && <AccordionBody items={props.items} onClickHandler={props.onClickHandler}/>}
         </div>
     )
 }
