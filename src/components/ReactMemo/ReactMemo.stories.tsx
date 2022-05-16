@@ -18,7 +18,7 @@ const UsersTable = (props: {users: Array<string>}) => {
 }
 const Users = React.memo(UsersTable)
 
-export const Example1 = () => {
+export const ReactMemoHelper = () => {
     const [counter, setCounter] = useState<number>(0)
     const [users, setUsers] = useState<Array<string>>(['William', 'Bob', 'Eddy', 'Robert'])
     return <>
