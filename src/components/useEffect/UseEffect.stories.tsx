@@ -48,9 +48,12 @@ export const SetTimeOutExample = () => {
             alert('Hi')
         }, 1000)*/
         //using callback inside makes setCounter rewriting old counter value with a new value
-        setInterval(()=>{
+        const interval = setInterval(()=>{
             setCounter(state =>state + 1)
         }, 1000)
+        return ()=>{
+            clearInterval(interval)
+        }
     },[])
 
 
@@ -58,4 +61,40 @@ export const SetTimeOutExample = () => {
         <button onClick={() => setCounter(counter + 1)}> + </button>
         {counter}
     </>
+}
+
+export const ResetUseEffectExample = () => {
+
+    const [counter, setCounter] = useState(1)
+
+    useEffect(() => {
+
+    },[counter])
+
+    const increase = ()=> setCounter(counter+1)
+
+    return<>
+        Hello, counter: {counter}
+        <button onClick={increase}>+</button>
+    </>
+}
+
+export const KeyTracerExample = () => {
+    const [text, setText] = useState('')
+
+    useEffect(()=>{
+        window.addEventListener('keypress', (e) => {
+            console.log(e.code)
+            setText(text + e.code)
+        })
+        return ()=>{
+            window.removeEventListener('keypress', (e) => {
+                console.log(e.code)
+                setText(text + e.code)
+            })
+        }
+    }, [text])
+
+    return<>
+    typed text: {text}</>
 }
