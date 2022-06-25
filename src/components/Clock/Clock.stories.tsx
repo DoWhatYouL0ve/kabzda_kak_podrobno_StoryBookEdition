@@ -8,6 +8,10 @@ export default {
 } as ComponentMeta<typeof Clock>;
 
 
-export const BaseClock = () => {
-    return <Clock/>
+export const BaseClockDigital = () => {
+    return <Clock mode={'digital'}/>
+}
+
+export const BaseClockAnalog = () => {
+    return <Clock mode={'analog'}/>
 }

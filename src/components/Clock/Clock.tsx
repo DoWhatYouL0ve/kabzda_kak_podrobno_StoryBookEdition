@@ -1,7 +1,9 @@
 import React, {useEffect, useState} from "react";
+import {DigitalClockView} from "./DigitalClockView";
+import {AnalogClockView} from "./AnalogClockView";
 
 type PropsType = {
-
+    mode?: 'analog' | 'digital'
 }
 
 export const Clock = (props: PropsType) => {
@@ -14,13 +16,16 @@ export const Clock = (props: PropsType) => {
         return () => {clearInterval(interval)}
     },[date])
 
-    const correctTimeView = (time: number) => {
-        return time < 10 ? '0' + time : time
-    }
 
-    return <>
-        <span>{correctTimeView(date.getHours())}</span> :
-        <span>{correctTimeView(date.getMinutes())}</span> :
-        <span>{correctTimeView(date.getSeconds())}</span>
-    </>
+    switch (props.mode) {
+        case 'digital':
+        default:
+            return <DigitalClockView date={date}/>
+        case 'analog':
+            return <AnalogClockView date={date}/>
+    }
+}
+
+export type ClockViewPropsType = {
+    date: Date
 }
